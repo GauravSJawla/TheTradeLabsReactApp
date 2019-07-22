@@ -33,7 +33,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
 
-    // If above 3 Check shows errors, following will display them
+    // If above 2 Check shows errors, following will display them
 
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
