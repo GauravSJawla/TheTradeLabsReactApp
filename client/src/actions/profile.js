@@ -79,7 +79,7 @@ export const getGithubRepos = username => async dispatch => {
   }
 };
 
-// Create or update a profile
+// Create or update profile
 export const createProfile = (
   formData,
   history,
@@ -106,6 +106,7 @@ export const createProfile = (
     }
   } catch (err) {
     const errors = err.response.data.errors;
+
     if (errors) {
       errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
     }

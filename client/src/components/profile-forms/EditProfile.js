@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -45,7 +45,7 @@ const EditProfile = ({
       youtube: loading || !profile.social ? '' : profile.social.youtube,
       instagram: loading || !profile.social ? '' : profile.social.instagram
     });
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading, getCurrentProfile]);
 
   const {
@@ -70,18 +70,18 @@ const EditProfile = ({
     e.preventDefault();
     createProfile(formData, history, true);
   };
+
   return (
     <Fragment>
-      <h1 className='large text-primary'>Create Your Profile</h1>
+      <h1 className='large text-primary'>Edit Your Profile</h1>
       <p className='lead'>
-        <i className='fas fa-user' /> Let's get some information to make your
-        profile stand out
+        <i className='fas fa-user' /> Add some changes to your profile
       </p>
       <small>* = required field</small>
       <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <select name='status' value={status} onChange={e => onChange(e)}>
-            <option value='0'>* Select Professional Status</option>
+            <option>* Select Professional Status</option>
             <option value='Developer'>Developer</option>
             <option value='Junior Developer'>Junior Developer</option>
             <option value='Senior Developer'>Senior Developer</option>
@@ -176,6 +176,7 @@ const EditProfile = ({
           </button>
           <span>Optional</span>
         </div>
+
         {displaySocialInputs && (
           <Fragment>
             <div className='form-group social-input'>
